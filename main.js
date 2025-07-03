@@ -19,4 +19,20 @@ function aumentaTamanho(){
         tamanhoSenha ++;
     }
     numeroSenha.textContent = tamanhoSenha;
+    geraSenha();
+}
+
+const campoSenha = documen.querySelector('#campo-senha');
+
+const Letrasmaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+geraSenha();
+
+Function geraSenha() {
+    let senha = '';
+    for (let i = 0; i < tamanhoSenha; i++) {
+        let numeroaleatorio = Math.random () * Letrasmaiuscula.length;
+        numeroaleatorio = Math.floor (numeroaleatorio);
+
+}
+campoSenha.value = senha;
 }
