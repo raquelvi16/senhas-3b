@@ -57,4 +57,5 @@ numeroAleatorio = Math.floor(numeroAleatorio);
 senha = senha + alfabeto[numeroAleatorio];
 }
 campoSenha.value = senha;
+class
 }
