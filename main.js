@@ -1,38 +1,63 @@
 const numeroSenha = document.querySelector('.parametro-senha__texto');
-let tamanhoSenha = 12;
+let tamanhoSenha = 5;
 numeroSenha.textContent = tamanhoSenha;
 
-const botoes = document.querySelectorAll ('.parametro-senha__botao');
+const botoes = document.querySelectorAll('.parametro-senha__botao');
 
 botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
 
-function diminuiTamanho(){
-    if (tamanhoSenha > 1){
-        tamanhoSenha --;
+function diminuiTamanho() {
+    if (tamanhoSenha > 1) {
+        tamanhoSenha--;
     }
     numeroSenha.textContent = tamanhoSenha;
+    geraSenha();
 }
-
-function aumentaTamanho(){
-    if (tamanhoSenha < 20){
-        tamanhoSenha ++;
+function aumentaTamanho() {
+    if (tamanhoSenha < 20) {
+        tamanhoSenha++;
     }
     numeroSenha.textContent = tamanhoSenha;
     geraSenha();
 }
 
-const campoSenha = documen.querySelector('#campo-senha');
+const campoSenha = document.querySelector('#campo-senha');
+const checkbox = document.querySelectorAll('.checkbox')
 
-const Letrasmaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+for(i = 0; i< checkbox.length; i++){
+    checkbox[i].onclick = 
+}
+
+const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXWYZ';
+const letrasMinusculas = 'abcdefghijklmnopqrstuvwxyz';
+const numeros = '0123456789';
+const simbolos = '!@%*?';
+
 geraSenha();
 
-Function geraSenha() {
+
+function geraSenha() {
+
+    let alfabeto = '';
+    if (checkbox[0].checked) {
+        alfabeto = alfabeto + letrasMaiusculas;
+    }
+    if (checkbox[1].checked) {
+        alfabeto = alfabeto + letrasMinusculas;
+    }
+    if (checkbox[2].checked) {
+        alfabeto = alfabeto + numeros;
+    }
+    if (checkbox[3].checked) {
+        alfabeto = alfabeto + simbolos;
+    }
+ 
     let senha = '';
     for (let i = 0; i < tamanhoSenha; i++) {
-        let numeroaleatorio = Math.random () * Letrasmaiuscula.length;
-        numeroaleatorio = Math.floor (numeroaleatorio);
-
-}
-campoSenha.value = senha;
+        let numeroAleatorio = Math.random() * alfabeto.length;
+        numeroAleatorio = Math.floor(numeroAleatorio);
+        senha = senha + alfabeto[numeroAleatorio];
+    }
+    campoSenha.value = senha;
 }
